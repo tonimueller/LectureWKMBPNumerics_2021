@@ -1,0 +1,127 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain,pagestyle=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{\"Ubung 0}
+
+Dieses \"Ubungsblatt dient der Einf\"uhrung in die Software
+jupyter-notebook mit Python 3 als Skriptsprache, welche w\"ahrend der 
+Online-Meetings \"uber MC-Simluation benutzt wird. 
+
+\subsection*{Informationen}
+\begin{itemize}
+    \item Vorlesender und \"Ubungsleiter Neuronale Netze: Marco Werner (werner-marco@ipfdd.de)
+    \item \"Ubungsleiter Monte-Carlo Simulationen: Toni M\"uller (mueller-toni@ipfdd.de)
+    \item Vorlesender Molekulardynamik Simulationen: Holger Merlitz (merlitz@ipfdd.de)
+    \item \"Ubungsleiter Molekulardynamik Simulationen: Markus Koch (koch-markus@ipfdd.de)
+    \item Zugang Materialien (Name: wkmbp, PW: ss2021): \url{https://www.ipfdd.de/de/scmbp/soft-condensed-matter-and-biological-physics/lecture-materials/}
+    \item Jitsi-Raum f\"ur die \"Ubung : \url{https://jitsi.tu-dresden.de/UebungNumerikWKMBP}
+    \item Zur Nutzung von Jitsi gibt es eine ausf\"uhrliche Seite der TU Dresden:
+    \url{https://tu-dresden.de/tu-dresden/organisation/zentrale-universitaetsverwaltung/dezernat-3-zentrale-angelegenheiten/sg-3-5-informationssicherheit/tud-cert/videokonferenzservice}
+\end{itemize}
+
+\subsection*{Python und jupyter-notebook}
+
+F\"ur diese \"Ubung verwenden wir die Skriptsprache python. Zum einfacheren
+Gebrauch und f\"ur die unkomplizierte Darstellung \"uber die Bildschirmfreigabe
+wird jupyter-notebook verwendet. Sollten Sie auf Ihrem Arbeitsger\"at
+noch keine Python-Distribution und jupyter installiert haben, k\"onnen
+Sie mit Anaconda schnell und einfach Ihre Arbeitsumgebung aufsetzen: 
+\begin{enumerate}
+\item Auf \url{www.anaconda.com/distribution/} finden Sie Anaconda zum
+herunterladen f\"ur Windows, macOS und Linux
+\item Installieren Sie die Python 3.7 Version nach den Anweisungen des Installers.
+\item Testen Sie ihre Installation, indem Sie in dem Ordner, in dem Sie
+die \"Ubungen speichern wollen, in einer Shell, der Powershell, der
+ZSH, ... den Befehl jupyter-notebook(.exe unter Windows) eingeben. 
+\item In Ihrem Standardbrowser sollte sich die jupyter Home Page \"offnen.
+Klicken Sie auf der rechten Seite auf New/Neu und w\"ahlen Sie Notebook:
+Python 3 aus.
+\end{enumerate}
+Lassen Sie sich ``Hallo Welt'' ausgeben. Eine detailierte Anleitung
+bis zu diesem Schritt finden sie hier: \url{https://realpython.com/jupyter-notebook-introduction/}
+
+Python ist eine objektorientierte Sprache. Darum werden zu erledigende
+Aufgaben in Klassen implementiert, die eigene Variablen (Member) und
+eigene (private) Funktionen enthalten. Dieses Prinzip wird in der
+folgenden \"Ubung an einem einfachen Beispiel angewendet und wichtige
+Bibliotheken werden vorgestellt und benutzt.
+
+\subsection*{Der Calculator}
+
+Schreiben Sie eine Python Klasse mit dem Name ``calculator'', mit
+der Sie zwei Zahlen $a$ und $b$ addieren, substrahieren und multiplizieren
+k\"onnen. Au{\ss}erdem soll die Funktion $f(x)=a*x+b$ f\"ur $x\in\mathbb{N},$
+$x<20$ in eine Datei ausgeben werden, sowie eine solche Datei eingelesen
+und die Werte von a und b \"uber einen Fit bestimmt werden k\"onnen. Benutzen
+Sie die Bibliotheken numpy, scipy, matplotlib und pandas, und
+machen sich mit den unten aufgef\"uhrten Objekten und Funktionen vertraut.
+
+N\"utzliche Funktionen und Objekte:
+\begin{itemize}
+\item Am Anfang des notebooks (Interaktive Umgebung f\"ur numpy und matplotlib):\textbf{
+\%pylab notebook}
+\item numpy.array, pandas.DataFrame
+\item matplotlib.pyplot.figure und matplotlib.pyplot.plot
+\item numpy.loadtxt oder pandas.read\_csv /read\_table
+\item numpy.savetxt oder pandas.DataFrame.to\_csv
+\item scipy.optimize.curve\_fit
+\end{itemize}
+% \subsection*{Zusatzaufgabe: Numerische Intergration}
+% Schreiben Sie eine Klasse ``integrator''. Implementieren Sie darin 
+% numerische Integrationsmethoden zur Berechnung eines Integrals einer beliebigen Funktion 
+% durch 
+% \begin{enumerate}
+%     \item die Approximation der Funktion durch Rechtecke (Stichwort Riemann-Integral)
+%     \item die Approximation der Funktion durch Trapeze ( Trapez-Regel )
+%     \item die Realisierung der Simpson-Regel.
+% \end{enumerate}
+% Testen Sie das Programm mit einer analytisch berechenbaren Funktion. 
+
+
+\subsection*{Monte-Carlo Integration}
+
+Nutzen Sie jetzt einen vorimplementierten Zufallszahlengenerator,
+zum Beispiel numpy.random.random.
+\begin{enumerate}
+\item Verwenden Sie Zufallszahlen um die Kreiszahl $\pi$ zu berechnen.
+Betrachten Sie ihre Analyse als Zufallsexperiment und sch\"atzen Sie
+den Fehler ihrer Auswertung ab. Mit welcher maximalen Genauigkeit
+k\"onnen Sie die Kreiszahl $\pi$ berechnen? 
+\item Betrachten Sie die Funktion $f(x,y)=x^{2}-y^{3}+xy^{2}$. Berechnen
+Sie das Volumen, das von dieser Funktion und der $xy$-Ebene f\"ur Koordinaten
+aus den Intervallen $x\in[-1,1]$, $y\in[-1,1]$ eingeschlossen wird.
+Stellen Sie das Ergebnis graphisch dar.
+\item Beurteilen Sie die Effizienz dieses Integrations-Verfahrens im Vergleich
+zu einer gleichm\"a{\ss}igen Rasterung des Raumes. Was sind die Vor- bzw.
+Nachteile der Monte-Carlo Integration (hochdimensionaler Phasenraum,
+periodische Funktionen, ...)? 
+\end{enumerate}
+N\"utzliche Funktionen:
+\begin{itemize}
+\item numpy.meshgrid, matplotlib.pyplot.plot\_surface
+\item numpy.random.random\_sample
+\end{itemize}
+
+
+\end{document}
