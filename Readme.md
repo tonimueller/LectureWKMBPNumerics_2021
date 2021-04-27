@@ -9,7 +9,7 @@ Here you find the source code, jupyter-notebooks and worksheets.
 
 To use the material simple type
 ```
-git clone https://github.com/MartinWenge/LectureWKMBP2020.git
+git clone https://github.com/tonimueller/LectureWKMBPNumerics_2021.git
 ```
 or - best pratice - use the [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) and clone your own fork to be able to create pull requests. 
 
