@@ -1,0 +1,70 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{url}
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{\"Ubung 4}
+BBB at 20.05.2021: \\
+Teilnehmende mit ZIH-Login:\\
+\url{https://selfservice.zih.tu-dresden.de/l/link.php?m=111130&p=32a58878}
+
+Teilnehmende ohne Hochschullogin:\\
+\url{https://selfservice.zih.tu-dresden.de/link.php?m=111130&p=8ea97381}
+
+\subsubsection*{Adsorption von Monomeren}
+
+Wir betrachten ein System mit Teilchen (Monomere) ohne paarweise Wechselwirkungen.
+Die Simulationsbox sei in zwei Raumrichtungen periodisch, in einer
+nicht-periodisch. Diese Wand hat eine attraktive Wechselwirkung mit
+den Monomeren, wobei die Wechselwirkungsst\"arke durch die Energie pro
+Monomer-Wand-Kontakt $\delta$ gegeben ist. Sie k\"onnen das Modul lattice\_gas.py
+benutzen.
+\begin{enumerate}
+\item Erstellen Sie eine Startkonformation mit $256$ einzelnen Monomeren
+in einer kubischen Box mit $32^{3}$ Gitterpl\"atzen.
+\item Implementieren Sie absorbierende W\"ande um diese Monomere an zwei
+gegen\"uberliegenden W\"anden mit verschiedenen Adsorptionsenergien $\delta\in[0,10]$
+zu simulieren. Nutzen Sie dazu den Metropolis Algorithmus. Messen
+Sie die Anzahl adsorbierter Monomere $N_{\text{ads}}$.
+\item Tragen Sie die Adsorptionsisotherme $N_{\text{ads}}/N(\delta)$ auf
+und vergleichen Sie mit der analytischen Vorhersage der Boltzmann
+Statistik: 
+\[
+\frac{N_{\text{ads}}}{N}(\delta)=\frac{\exp(\delta/k_{\text{B}}T)}{\exp(\delta/k_{\text{B}}T)+V_{0}/V_{\text{ads}}}
+\]
+Dabei ist $N$ die Gesamtanzahl der Teilchen in der Box mit dem Gesamtvolumen
+$V$. $V_{\text{ads}}$ bezeichnet das Volumen, das f\"ur die Adsorption
+zur Verf\"ugung steht, $V_{0}$ das Volumen, das nicht f\"ur die Adsorption
+zur Verf\"ugung steht.
+\item Leiten Sie diesen Ausdruck her. Nehmen Sie als Ausgangspunkt die Entropie
+des idealen Gases $S=S(T)-k_{\text{B}}N\ln(V/v_{0}N)$ an, wobei $v_{0}$
+das Eigenvolumen eines Monomeres ist.
+\end{enumerate}
+\subsubsection*{Polymerb\"ursten}
+\begin{enumerate}
+\item Nutzen Sie die das BFM zur Erstellung von Polymerketten mit ausgeschlossenem
+Volumen, deren erstes Monomer an der (nicht periodischen) Grundfl\"ache
+der Simulationsbox verankert ist, als Modellsystem f\"ur eine Polymerb\"urste.
+Erzeugen Sie Systeme mit $8x8$ Ketten aus 32 Monomeren bei Ankerpunktdichten
+$\sigma$ 1/9, 1/25, 1/256 sowie eine einzelne geankerte Kette.
+\item Equilibrieren Sie die B\"ursten und bestimmen Sie die mittlere H\"ohe
+$H$. Vergleichen Sie die Abh\"angigkeit $H\sim\sigma$ mit der theoretischen
+Vorhersage.
+\end{enumerate}
+
+\end{document}
