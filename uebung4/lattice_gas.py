@@ -61,7 +61,13 @@ class LatticeGasSimulator:
         myY = np.array([((x.coords[1]%self.boxY)+self.boxY)%self.boxY for x in self.molecules])
         myZ = np.array([((x.coords[2]%self.boxZ)+self.boxZ)%self.boxZ for x in self.molecules])
         
-        myFixed = [(x.coords[2]==0 or x.coords[2]== (self.boxX-2) ) for x in self.molecules]
+        if not self.pX:
+            myFixed = [(x.coords[0]==0 or x.coords[0]== (self.boxX-2) ) for x in self.molecules]
+        elif not self.pY:
+            myFixed = [(x.coords[1]==0 or x.coords[1]== (self.boxX-2) ) for x in self.molecules]
+        elif not self.pZ:
+            myFixed = [(x.coords[2]==0 or x.coords[2]== (self.boxX-2) ) for x in self.molecules]
+        
         myColors = [colorList[int(c)] for c in myFixed ]
         ax.scatter(myX,myY,myZ, c=myColors)
         

@@ -222,7 +222,7 @@ class BFMSimulator:
         ''' add new monomer at the end of molecules '''
         newIdx = len(self.molecules)
         if not self.lattice.setMonomer(coords[0],coords[1],coords[2]):
-            raise ValueError("Monomer {} could not be placed at ".format(newIdx,coords))
+            raise ValueError("Monomer {} could not be placed at {},{},{}.".format(newIdx,coords[0],coords[1],coords[2]))
         self.molecules.append(monomer(newIdx ,coords, attributes,[]))
         
     def plotConfig(self):
@@ -316,8 +316,8 @@ class BFMSimulator:
         mol_size = len(self.molecules)
         for t in range(time):
             for n in range(mol_size):
-                randomIdx = random.randint(mol_size)
-                randomDir = random.randint(self.Nmoves)
+                randomIdx = np.random.randint(mol_size)
+                randomDir = np.random.randint(self.Nmoves)
                 if self.checkMove(randomIdx,randomDir):
                     self.applyMove(randomIdx,randomDir)
                     counter += 1
